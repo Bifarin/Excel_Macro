@@ -1,0 +1,33 @@
+// Used to reorder the Transaction ID of Bifarin GL
+file:///C:/Users/User/Bifarin%20Farms%20Nigeria%20Limited/Project%20-%20Documents/Project/Bifarin%20Farms%20Finance/BifarinGL.xlsm
+Sub FillHighlightedColumn()
+    Dim rng As Range
+    Dim cell As Range
+    Dim currentValue As Integer
+    Dim repeatCount As Integer
+    
+    ' Set the range to the highlighted column
+    Set rng = Selection
+    
+    ' Get the initial values from the first two cells
+    currentValue = rng.Cells(1).Value
+    repeatCount = 2
+    
+    ' Loop through each cell in the range
+    For Each cell In rng.Cells
+        ' Fill the current value into the cell
+        cell.Value = currentValue
+        
+        ' Decrease repeat count
+        repeatCount = repeatCount - 1
+        
+        ' If repeat count reaches 0, move to the next value
+        If repeatCount = 0 Then
+            currentValue = currentValue + 1
+            repeatCount = 2
+        End If
+        
+        ' If reached the end of the highlighted portion, exit the loop
+        If cell.Row = rng.Rows.Count Then Exit For
+    Next cell
+End Sub
