@@ -1,0 +1,5 @@
+Private Sub Worksheet_Activate()
+' + is SHIFT, ^ is CTRL, % is ALT
+Application.OnKey "+^r", "New_deposit_rec"
+End Sub
+
