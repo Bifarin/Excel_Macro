@@ -1,0 +1,7 @@
+Sub Chart_Checked()
+'
+' Chart_Checked Macro
+    For Each cell In Selection
+        cell.Value = "Yes"
+    Next cell
+End Sub
