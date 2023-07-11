@@ -1,0 +1,10 @@
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+Dim rownumber As Integer
+rownumber = ActiveCell.Row
+If ActiveCell.Value <> "" Then
+Range("A1:R3500").Interior.ColorIndex = xlNone
+Range("A" & rownumber & ":R" & rownumber).Interior.ColorIndex = 43
+
+
+End If
+End Sub
