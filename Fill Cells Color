@@ -1,0 +1,30 @@
+Sub fill_lightgreen()
+'
+' fill_lightgreen Macro
+'
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 13561798
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+End Sub
+Sub fill_orange()
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 39423
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+End Sub
+
+
+Sub fill_nocolor()
+    With Selection.Interior
+        .Pattern = xlNone
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+End Sub
