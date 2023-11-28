@@ -3,6 +3,9 @@ Dim rng As Range
 ' specify the column that triggers the Sub
 Set rng = Range("M:T")
 
+' Set the grey fill for the specified range
+    rng.Interior.Color = RGB(192, 192, 192)
+
 ' Check if only one cell is selected to prevent error
 If Target.Cells.Count = 1 Then
     If Not Intersect(Target, rng) Is Nothing Then
