@@ -2,10 +2,10 @@
 -- Hide
 ========================================================================================================================================================
 
-Sub HideColumns()
+Sub HideColumnsByLetter()
     Dim columnsToHide As String
     Dim columnArray() As String
-    Dim columnNumber As String
+    Dim columnLetter As String
     Dim ws As Worksheet
     Dim i As Integer
     
@@ -13,16 +13,16 @@ Sub HideColumns()
     Set ws = ActiveSheet
     
     ' Prompt the user for columns to hide
-    columnsToHide = InputBox("Enter column numbers to hide (comma-separated):")
+    columnsToHide = InputBox("Enter column letters to hide (comma-separated):")
     
     ' Split the input into an array
     columnArray = Split(columnsToHide, ",")
     
     ' Loop through the array and hide the specified columns
     For i = LBound(columnArray) To UBound(columnArray)
-        columnNumber = Trim(columnArray(i))
-        If IsNumeric(columnNumber) Then
-            ws.Columns(columnNumber).Hidden = True
+        columnLetter = Trim(columnArray(i))
+        If Len(columnLetter) = 1 Then
+            ws.Columns(columnLetter & ":" & columnLetter).Hidden = True
         End If
     Next i
 End Sub
