@@ -1,11 +1,13 @@
 Private Sub Worksheet_SelectionChange(ByVal Target As Range)
 Dim rng As Range
+' specify the column that triggers the Sub
 Set rng = Range("M:T")
 
 ' Check if only one cell is selected to prevent error
 If Target.Cells.Count = 1 Then
     If Not Intersect(Target, rng) Is Nothing Then
         On Error GoTo 0
+            ' multiple with-block is added based on number of buttons you want to shift around
             With ActiveSheet.Shapes("Button 1")
             .Top = Target.Offset(0).Top
                 .Left = Target.Offset(, 2).Left
