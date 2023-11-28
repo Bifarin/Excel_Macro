@@ -1,0 +1,57 @@
+========================================================================================================================================================
+-- Hide
+========================================================================================================================================================
+
+Sub HideColumns()
+    Dim columnsToHide As String
+    Dim columnArray() As String
+    Dim columnNumber As String
+    Dim ws As Worksheet
+    Dim i As Integer
+    
+    ' Set the active sheet
+    Set ws = ActiveSheet
+    
+    ' Prompt the user for columns to hide
+    columnsToHide = InputBox("Enter column numbers to hide (comma-separated):")
+    
+    ' Split the input into an array
+    columnArray = Split(columnsToHide, ",")
+    
+    ' Loop through the array and hide the specified columns
+    For i = LBound(columnArray) To UBound(columnArray)
+        columnNumber = Trim(columnArray(i))
+        If IsNumeric(columnNumber) Then
+            ws.Columns(columnNumber).Hidden = True
+        End If
+    Next i
+End Sub
+
+========================================================================================================================================================
+-- Unhide
+========================================================================================================================================================
+
+Sub UnhideColumnsByLetter()
+    Dim columnsToUnhide As String
+    Dim columnArray() As String
+    Dim columnLetter As String
+    Dim ws As Worksheet
+    Dim i As Integer
+    
+    ' Set the active sheet
+    Set ws = ActiveSheet
+    
+    ' Prompt the user for columns to unhide
+    columnsToUnhide = InputBox("Enter column letters to unhide (comma-separated):")
+    
+    ' Split the input into an array
+    columnArray = Split(columnsToUnhide, ",")
+    
+    ' Loop through the array and unhide the specified columns
+    For i = LBound(columnArray) To UBound(columnArray)
+        columnLetter = Trim(columnArray(i))
+        If Len(columnLetter) = 1 Then
+            ws.Columns(columnLetter & ":" & columnLetter).Hidden = False
+        End If
+    Next i
+End Sub
