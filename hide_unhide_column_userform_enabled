@@ -6,6 +6,8 @@ Sub HideColumnsByLetter()
     Dim columnsToHide As String
     Dim columnArray() As String
     Dim columnLetter As String
+    Dim colEnd As String
+    Dim colStart As String
     Dim ws As Worksheet
     Dim i As Integer
     
@@ -18,13 +20,20 @@ Sub HideColumnsByLetter()
     ' Split the input into an array
     columnArray = Split(columnsToHide, ",")
     
+    
+    
     ' Loop through the array and hide the specified columns
     For i = LBound(columnArray) To UBound(columnArray)
         columnLetter = Trim(columnArray(i))
         If Len(columnLetter) = 1 Then
-            ws.Columns(columnLetter & ":" & columnLetter).Hidden = True
+            If i = 0 Then
+                colStart = columnLetter
+            ElseIf i = 1 Then
+                colEnd = columnLetter
+            End If
         End If
     Next i
+    ws.Columns(colStart & ":" & colEnd).Hidden = True
 End Sub
 
 ========================================================================================================================================================
@@ -51,7 +60,13 @@ Sub UnhideColumnsByLetter()
     For i = LBound(columnArray) To UBound(columnArray)
         columnLetter = Trim(columnArray(i))
         If Len(columnLetter) = 1 Then
-            ws.Columns(columnLetter & ":" & columnLetter).Hidden = False
+            If i = 0 Then
+                colStart = columnLetter
+            ElseIf i = 1 Then
+                colEnd = columnLetter
+            End If
         End If
     Next i
+    ws.Columns(colStart & ":" & colEnd).Hidden = False
 End Sub
+
