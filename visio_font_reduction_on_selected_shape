@@ -1,0 +1,26 @@
+Sub FontReduction()
+
+    'Enable diagram services
+    Dim DiagramServices As Integer
+    Dim selectedShape As Visio.Shape
+    DiagramServices = ActiveDocument.DiagramServicesEnabled
+    ActiveDocument.DiagramServicesEnabled = visServiceVersion140 + visServiceVersion150
+
+    Set selectedShape = Visio.ActiveWindow.Selection(1)
+    
+    Dim UndoScopeID1 As Long
+    UndoScopeID1 = Application.BeginUndoScope("Font Size")
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterSize).FormulaU = "8 pt"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterDblUnderline).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterOverline).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterStrikethru).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, 11).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterDoubleStrikethrough).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterRTLText).FormulaU = "FALSE"
+    selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterUseVertical).FormulaU = "FALSE"
+    Application.EndUndoScope UndoScopeID1, True
+
+    'Restore diagram services
+    ActiveDocument.DiagramServicesEnabled = DiagramServices
+
+End Sub
