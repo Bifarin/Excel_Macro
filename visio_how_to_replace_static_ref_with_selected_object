@@ -1,0 +1,8 @@
+
+STATIC
+Application.ActiveWindow.Page.Shapes.ItemFromID(25).CellsSRC(visSectionCharacter, 0, visCharacterSize).FormulaU = "8 pt"
+
+DYNAMIC REFERENCE
+Dim selectedShape As Visio.Shape
+Set selectedShape = Visio.ActiveWindow.Selection(1)
+selectedShape.CellsSRC(visSectionCharacter, 0, visCharacterSize).FormulaU = "8 pt"
