@@ -1,2 +1,9 @@
-Where N6 is the start of the pivoted table that carries the Categories and Items
+# where N6 is the start of the pivoted table that carries the Categories and Items
 =OFFSET($N$6,1,MATCH($M18,rngPages,0)-1,COUNTA(OFFSET($N$6,1,MATCH($M18,rngPages,0)-1,20)),1)
+
+# with the sheet reference
+=OFFSET(event_dimension!$N$6,1,MATCH($M18,rngPages,0)-1,COUNTA(OFFSET(event_dimension!$N$6,1,MATCH($M18,rngPages,0)-1,20)),1)
+
+# M18 should be replaced with the Category Item
+
+
