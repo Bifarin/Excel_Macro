@@ -1,0 +1,11 @@
+Sub AppendBulletList()
+'
+Dim cellstring As String
+
+  cellstring = Selection.Value
+  If cellstring = "" Then
+    Selection.FormulaR1C1 = "• "
+  Else
+    Selection.FormulaR1C1 = cellstring & Chr(10) & "• "
+  End If
+End Sub
