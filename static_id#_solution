@@ -1,0 +1,15 @@
+Sub InsertNewRecord()
+'
+' InsertChart Macro
+'
+
+    Dim CurrentRow As Long
+    CurrentRow = Selection.Row
+    Rows(CurrentRow & ":" & CurrentRow).Select
+    Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+    ' Selecting a location to paste a new record ID 
+    ActiveCell.Offset(0, 3).Range("A1").Select
+    ' B3 Carries =MAX(Trans_Numb)+1 where Trans_Numb is a dynamic array of all Record ID
+    Selection.Value = Range("B3").Value
+    Module2.pull_down_formula
+End Sub
