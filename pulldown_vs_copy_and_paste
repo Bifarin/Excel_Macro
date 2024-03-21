@@ -1,0 +1,12 @@
+Sub PullDownOrCopyCellAbove()
+    ' pull down
+    ActiveCell.Offset(-1, 0).Range("A1").Select
+    Selection.AutoFill Destination:=ActiveCell.Range("A1:A2"), Type:= _
+        xlFillDefault
+        
+    ' Scenario tag copy and paste
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.Copy
+    ActiveCell.Offset(1, 0).Range("A1").PasteSpecial Paste:=xlPasteValues
+    Application.CutCopyMode = False
+End Sub
