@@ -1,0 +1,5 @@
+// h min
+=IF(INT(B30) > 0, INT(B30) & "h ", "") & ROUND(ABS(B30 - INT(B30)) * 60, 0) & " min"
+
+// d h min
+=IF(B30>=7.5, INT(B30/7.5) & "d ", "") & IF(MOD(B30,7.5)>=1, INT(MOD(B30,7.5)) & "h ", "") & ROUND(ABS(MOD(B30,7.5) - INT(MOD(B30,7.5))) * 60, 0) & " min"
