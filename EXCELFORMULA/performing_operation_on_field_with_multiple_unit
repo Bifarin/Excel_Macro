@@ -1,0 +1,2 @@
+// in this case hrs and hr
+=SUM(IF(Table3[DIProject]="Summarization", VALUE(SUBSTITUTE(SUBSTITUTE(Table3[Duration], " hrs", ""), "hr", "")), 0))
