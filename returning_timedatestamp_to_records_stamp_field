@@ -1,0 +1,22 @@
+Sub InsertDateTimeInSelectedCells()
+    Dim selectedRange As Range
+    Dim cell As Range
+    Dim startRow As Long
+    Dim endRow As Long
+    
+    ' Check if any cells are currently selected
+    If TypeName(Selection) <> "Range" Then
+        MsgBox "Please select the range of cells where you want to insert the date and time.", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Set the selected range
+    Set selectedRange = Selection
+    startRow = selectedRange.Row
+    endRow = selectedRange.Row + selectedRange.Rows.Count - 1
+    
+    Range("M" & startRow & ":M" & endRow).Value = Now
+    Range("M" & startRow & ":M" & endRow).NumberFormat = "dd/mm/yyyy hh:mm:ss" ' Change format as needed
+    
+    
+End Sub
