@@ -22,3 +22,9 @@ Sub AlternateRows()
             End If
         End If
     Next cell
+    
+    ' Select the final range
+    If Not Rng Is Nothing Then
+        Rng.Select
+    End If
+End Sub
