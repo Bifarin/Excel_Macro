@@ -1,11 +1,19 @@
 Sub AlternateRows()
     Dim Rng As Range
     Dim SelectedRange As Range
+    Dim cell As Range
     Dim r As Long
-    Dim ws As Worksheet
     
-    ' Store the selected range
+    ' Check if a range is selected
+    On Error Resume Next
     Set SelectedRange = Selection
+    On Error GoTo 0
+    
+    ' Check if a range is selected
+    If SelectedRange Is Nothing Then
+        MsgBox "Please select a range first.", vbExclamation
+        Exit Sub
+    End If
     
     ' Initialize Rng as empty range
     Set Rng = Nothing
@@ -26,5 +34,7 @@ Sub AlternateRows()
     ' Select the final range
     If Not Rng Is Nothing Then
         Rng.Select
+    Else
+        MsgBox "No alternate rows found in the selected range.", vbInformation
     End If
 End Sub
