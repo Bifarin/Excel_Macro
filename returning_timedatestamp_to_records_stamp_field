@@ -3,6 +3,11 @@ Sub InsertDateTimeInSelectedCells()
     Dim cell As Range
     Dim startRow As Long
     Dim endRow As Long
+    Dim columnTarget As String
+    Dim columnTarget_with_column_perfix As String
+    
+    columnTarget = "B"
+    columnTarget_with_column_perfix = ":" & columnTarget
     
     ' Check if any cells are currently selected
     If TypeName(Selection) <> "Range" Then
@@ -15,8 +20,12 @@ Sub InsertDateTimeInSelectedCells()
     startRow = selectedRange.Row
     endRow = selectedRange.Row + selectedRange.Rows.Count - 1
     
-    Range("M" & startRow & ":M" & endRow).Value = Now
-    Range("M" & startRow & ":M" & endRow).NumberFormat = "dd/mm/yyyy hh:mm:ss" ' Change format as needed
+    
+    
+    Range(columnTarget & startRow & columnTarget_with_column_perfix & endRow).Value = Now
+    Range(columnTarget & startRow & columnTarget_with_column_perfix & endRow).NumberFormat = "dd/mm/yyyy hh:mm:ss" ' Change format as needed
     
     
 End Sub
+
+
