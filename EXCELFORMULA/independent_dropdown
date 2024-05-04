@@ -1,2 +1,5 @@
 # change the 20 to how long the height you need to capture for
 =OFFSET($U$1,1,0,COUNTA(OFFSET($U$1,1,0,20)),1)
+
+# or with a table
+=PigSaleForecastJournal[Budget_Tag]
