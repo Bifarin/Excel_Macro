@@ -1,0 +1,28 @@
+'Create a module for this
+'before this script is run ensure that locked has been unchecked in the user-editable columns
+Sub ProtectSheet()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change "Sheet1" to your sheet name
+    
+    ' Unprotect the sheet if it is already protected
+    If ws.ProtectContents Then
+        ws.Unprotect Password:="yourpassword"
+    End If
+    
+    ' Lock all cells
+    ws.Cells.Locked = True
+    
+    ' Unlock columns B and C
+    ws.Columns("B:D").Locked = False
+    
+    ' Protect the sheet... if the userinterfaceonly is not placed, vba will not be able to change the format of cells
+    ws.Protect Password:="yourpassword", AllowFiltering:=True, AllowSorting:=True, AllowUsingPivotTables:=True, UserInterfaceOnly:=True
+End Sub
+
+
+
+'this has to be in the "ThisWorkbook" section
+Private Sub Workbook_Open()
+    Call ProtectSheet
+End Sub
+
