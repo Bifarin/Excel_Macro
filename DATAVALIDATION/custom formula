@@ -13,6 +13,6 @@ ISERROR(FIND("-",A1))
 Ensures no hyphens are included in the tag.
 
 
-=AND(LEN(A13)=4, LEFT(A13,1)="Y", ISNUMBER(VALUE(MID(A13,2,3))), ISERROR(FIND("-",A13)))
+=AND(LEN(A12)=4, LEFT(A12,1)="Y", ISNUMBER(VALUE(MID(A12,2,3))), ISERROR(FIND("-",A12)))
 //Explanation:
 For specific Letter only
