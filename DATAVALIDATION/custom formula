@@ -1,0 +1,18 @@
+=AND(LEN(A1)=4, ISNUMBER(VALUE(MID(A1,2,3))), CODE(LEFT(A1,1))>=65, CODE(LEFT(A1,1))<=90, ISERROR(FIND("-",A1)))
+//Explanation:
+LEN(A1)=4
+Ensures the tag number is exactly 4 characters long.
+
+ISNUMBER(VALUE(MID(A1,2,3)))
+Confirms that the last three characters are numeric.
+
+CODE(LEFT(A1,1))>=65 and CODE(LEFT(A1,1))<=90
+Ensures that the first character is a capital letter (ASCII values for A–Z are 65–90).
+
+ISERROR(FIND("-",A1))
+Ensures no hyphens are included in the tag.
+
+
+=AND(LEN(A13)=4, LEFT(A13,1)="Y", ISNUMBER(VALUE(MID(A13,2,3))), ISERROR(FIND("-",A13)))
+//Explanation:
+For specific Letter only
