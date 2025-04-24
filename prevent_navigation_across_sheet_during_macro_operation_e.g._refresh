@@ -1,0 +1,9 @@
+//works instead of the below block where you use select
+Sheets("tblSourceData").ListObjects("tblStaging").QueryTable.Refresh BackgroundQuery:=False
+    
+    
+'Refresh staging data
+'Sheets("tblSourceData").Select
+'Range("H2").Select
+
+'Selection.ListObject.QueryTable.Refresh BackgroundQuery:=False
